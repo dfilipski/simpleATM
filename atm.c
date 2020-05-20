@@ -4,6 +4,7 @@
 char getMode();
 void deposit();
 void withdraw();
+void writeBal();
 
 double bal = 0;
 
@@ -28,6 +29,7 @@ int main ()
         }
         else if (mode == 'E' || mode == 'e')
         {
+            writeBal();
             break;
         }
     }
@@ -103,4 +105,12 @@ void withdraw()
         printf("You withdrew %.2f.", d);
         bal -= d;
     }
+}
+
+void writeBal()
+{
+    FILE *fptr;
+    fptr = fopen("bal.txt", "w");
+    fprintf(fptr, "%.2f", bal);
+    fclose(fptr);
 }
