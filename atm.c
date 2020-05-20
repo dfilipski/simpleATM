@@ -33,13 +33,14 @@ int main ()
 
 char getMode()
 {
-    char m;
+    char m, n;
 
     printf("Please select an actoin:\n");
     printf("[D]eposit\n");
     printf("[W]ithdraw\n");
     
     m = getchar();
+    n = getchar(); /*Remove enter from standard in*/
 
     return m;
 }
@@ -52,6 +53,7 @@ void deposit()
     printf("How much would you like to deposit?\n");
     do
     {
+        printf("$");
         if (!fgets(buf, 1024, stdin))
         {
             /*Reading failed*/
@@ -59,7 +61,7 @@ void deposit()
         }
 
         d = atof(buf);
-        printf("$");
+
 
     } while (d == 0);
 
@@ -75,6 +77,7 @@ void withdraw()
     printf("How much would you like to withdraw?\n");
     do
     {
+        printf("$");
         if (!fgets(buf, 1024, stdin))
         {
             /*Reading failed*/
@@ -82,7 +85,7 @@ void withdraw()
         }
 
         d = atof(buf);
-        printf("$");
+
 
     } while (d == 0);
 
