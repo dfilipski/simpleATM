@@ -26,6 +26,10 @@ int main ()
         {
             withdraw();
         }
+        else if (mode == 'E' || mode == 'e')
+        {
+            break;
+        }
     }
 
     return 0;
@@ -38,6 +42,7 @@ char getMode()
     printf("Please select an actoin:\n");
     printf("[D]eposit\n");
     printf("[W]ithdraw\n");
+    printf("[E]xit\n");
     
     m = getchar();
     n = getchar(); /*Remove enter from standard in*/
