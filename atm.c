@@ -5,11 +5,13 @@ char getMode();
 void deposit();
 void withdraw();
 void writeBal();
+void readBal();
 
 double bal = 0;
 
 int main ()
 {
+    readBal();
     while (1)
     {
         char mode;
@@ -111,6 +113,21 @@ void writeBal()
 {
     FILE *fptr;
     fptr = fopen("bal.txt", "w");
-    fprintf(fptr, "%.2f", bal);
+    fprintf(fptr, "%.2lf", bal);
     fclose(fptr);
+}
+
+void readBal()
+{
+    FILE *fptr;
+
+    if ((fptr = fopen("bal.txt", "r")) == NULL)
+    {
+        printf("No bal.txt was found\n");
+        return; /*Do nothing if there is no bal.txt file*/
+    }
+
+    fscanf(fptr, "%lf", &bal);
+    fclose(fptr);
+    return;
 }
