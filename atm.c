@@ -63,7 +63,7 @@ void deposit()
         d = atof(buf);
 
 
-    } while (d == 0);
+    } while (d <= 0);
 
     printf("You deposited %.2f.", d);
     bal += d;
@@ -87,7 +87,7 @@ void withdraw()
         d = atof(buf);
 
 
-    } while (d == 0);
+    } while (d <= 0);
 
     if (d > bal)
     {
