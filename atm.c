@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 char getMode();
+void getAccNum(char accNum[12]);
 void deposit();
 void withdraw();
 void writeBal();
@@ -12,6 +13,11 @@ double bal = 0;
 int main ()
 {
     readBal();
+
+    char accountStr[12];
+    getAccNum(accountStr);
+    printf("Your account number is %s.\n", accountStr);
+
     while (1)
     {
         char mode;
@@ -43,7 +49,7 @@ char getMode()
 {
     char m, n;
 
-    printf("Please select an actoin:\n");
+    printf("Please select an action:\n");
     printf("[D]eposit\n");
     printf("[W]ithdraw\n");
     printf("[E]xit\n");
@@ -52,6 +58,15 @@ char getMode()
     n = getchar(); /*Remove enter from standard in*/
 
     return m;
+}
+
+void getAccNum(char accnum[12])
+{
+    printf("Enter your account number:\n");
+    if (fgets(accnum, 12, stdin))
+    {
+        accnum[strcspn(accnum, "\n")] = 0;
+    }
 }
 
 void deposit()
